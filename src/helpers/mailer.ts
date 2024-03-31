@@ -1,6 +1,6 @@
-import User from '@/models/userModal';
-import nodemailer from 'nodemailer'
-import bcryptjs from 'bcryptjs'
+import User from "@/models/userModal";
+import nodemailer from 'nodemailer';
+import bcryptjs from 'bcryptjs';
 
 export const sendEmail = async({email,emailType, userId}:any) => {
   try {
@@ -35,14 +35,14 @@ export const sendEmail = async({email,emailType, userId}:any) => {
           or copy and paste the link below in your browser. 
           <br> ${process.env.DOMAIN}/verifyemail?token=${hashedtoken}
         </p>`,
-  };
+  }
   
 
-      const mailResponse = await transport.sendMail(mailOptions)
-      return mailResponse
+      const mailResponse = await transport.sendMail(mailOptions);
+      return mailResponse;
 
 
   } catch (error:any)  { 
-      throw new Error(error.message)
+      throw new Error(error.message);
   }
 }  
